@@ -30,7 +30,7 @@
             <div class="col-sm-12">
                 <div class="card text-center">
                     <div class="card-header">
-                        Tabla dinamica
+                        Tabla Padres
                     </div>
                     <div class="card-body">
                         <span class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AgregarAlumnos">
