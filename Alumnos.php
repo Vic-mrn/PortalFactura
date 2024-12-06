@@ -95,7 +95,7 @@
                                     // Iterar los resultados y crear las opciones del select
                                     if ($meses->num_rows > 0) {
                                         while ($row = $meses->fetch_assoc()) {
-                                            echo "<option value='" . $row['iniciales'] . "'>" . $row['nombre'] . "</option>";
+                                            echo "<option value='" . $row['id'] . "'>" . $row['nombre'] . "</option>";
                                         }
                                     } else {
                                         echo "<option>No hay datos</option>";
@@ -126,7 +126,7 @@
                                 // Iterar los resultados y crear las opciones del select
                                 if ($meses->num_rows > 0) {
                                     while ($row = $estados->fetch_assoc()) {
-                                        echo "<option value='" . $row['id'] . "'>" . $row['nombre'] . "</option>";
+                                        echo "<option value='" . $row['iniciales'] . "'>" . $row['nombre'] . "</option>";
                                     }
                                 } else {
                                     echo "<option>No hay datos</option>";
