@@ -17,7 +17,7 @@
                 <img src="img/padre.png" height="150 px" width="150 px" alt="">
                 <h2>Padres</h2>
                 <p>Gestiona los padres registrados</p>
-                <a href="MenuP.php">
+                <a href="Padres.php">
                     <input type="submit" class="btn btn-primary" value="Ir a padres" />
                 </a>
             </div>

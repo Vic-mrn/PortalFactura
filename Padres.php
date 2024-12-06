@@ -13,7 +13,7 @@
     $conn = $obj1->conexion();
 
     $sql1 = "select id, nombre from meses";
-    $sql2 = "select id, nombre from estados";
+    $sql2 = "select inicial, nombre from estados";
 
     $meses = mysqli_query($conn, $sql1);
     $estados = mysqli_query($conn, $sql2);
@@ -61,7 +61,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-3" id="FormAgregarA">
+                    <form class="row g-3" id="FormAgregarP">
                         <label class="form-label">Datos generales</label>
                         <!-- Nombre -->
                         <div class="col-4">
@@ -78,9 +78,18 @@
                             <label class="form-label">Apellido materno</label>
                             <input type="text" class="form-control" name="apellidoM" placeholder="Perez" />
                         </div>
+                        
+                        <div class="col-8">
+                            <label class="form-label">Dirección</label>
+                            <input type="text" class="form-control" name="direccion"
+                                placeholder="Ingresa tu dirección" />
+                        </div>
 
-                        <!-- Fecha de nacimiento -->
-                        <hr>
+                        <div class="col-4">
+                            <label class="form-label">Codigo Postal</label>
+                            <input type="text" class="form-control" name="cp" placeholder="Ingresa tu CP" />
+                        </div>
+
                         <div class="col-2">
                             <label for="inputAddress" class="form-label">Dia</label>
                             <input type="text" class="form-control" name="dia" placeholder="00" maxlength="2"
@@ -95,7 +104,7 @@
                                     // Iterar los resultados y crear las opciones del select
                                     if ($meses->num_rows > 0) {
                                         while ($row = $meses->fetch_assoc()) {
-                                            echo "<option value='" . $row['iniciales'] . "'>" . $row['nombre'] . "</option>";
+                                            echo "<option value='" . $row['id'] . "'>" . $row['nombre'] . "</option>";
                                         }
                                     } else {
                                         echo "<option>No hay datos</option>";
@@ -121,12 +130,12 @@
                         <div class="col-4">
                             <label class="form-label">Estado</label>
                             <select class="form-select" name="estado">
-                                <option selected>Selecciona un estado</option>
+                                <option selected value="">Selecciona un estado</option>
                                 <?php
                                 // Iterar los resultados y crear las opciones del select
                                 if ($meses->num_rows > 0) {
                                     while ($row = $estados->fetch_assoc()) {
-                                        echo "<option value='" . $row['id'] . "'>" . $row['nombre'] . "</option>";
+                                        echo "<option value='" . $row['inicial'] . "'>" . $row['nombre'] . "</option>";
                                     }
                                 } else {
                                     echo "<option>No hay datos</option>";
@@ -140,45 +149,36 @@
                         // Cerrar la conexión
                         $conn->close();
                         ?>
-                        <hr>
-                        <label class="form-label">Datos escolares</label>
-                        <!-- Nivel educativo -->
-                        <div class="col-md-4">
-                            <label class="form-label">Nivel educativo</label>
-                            <select class="form-select" name="nivel">
+                        <hr> <!-- Datos fiscales -->
+                        <label class="form-label">Datos fiscales</label>
+
+                        <div class="col-4">
+                            <label class="form-label">RFC</label>
+                            <input type="text" class="form-control" name="rfc" placeholder="Ingresa tu RFC" />
+                        </div>
+                        
+                        <div class="col-md-8">
+                            <label class="form-label">Regimen fiscal</label>
+                            <select class="form-select" name="regimen">
                                 <option selected>Elige alguna opcion</option>
-                                <option>Preescolar</option>
-                                <option>Primaria</option>
-                                <option>Secundaria</option>
+                                <option value="1">Sueldos y Salarios e Ingresos Asimilados a Salarios
+                                </option>
+                                <option value="2">Simplificado de Confianza</option>
+                                <option value="3">Persona Física con Actividad Empresarial</option>
                             </select>
                         </div>
 
-                        <!-- Grado  -->
-                        <div class="col-md-3">
-                            <label class="form-label">Grado</label>
-                            <select class="form-select" name="grado">
-                                <option selected>Elige alguna opcion</option>
-                                <option>1ro</option>
-                                <option>2do</option>
-                                <option>3ro</option>
-                                <option>4to</option>
-                                <option>5to</option>
-                                <option>6to</option>
-                            </select>
-                        </div>
+                        
+
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="RegistrarA">Registrar Alumno</button>
+                    <button type="button" class="btn btn-primary" id="RegistrarP">Registrar padre</button>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
 
 </body>
 
@@ -195,17 +195,17 @@ $(document).ready(function() {
 <!-- BOTONES -->
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#RegistrarA').click(function() {
-        datos = $('#FormAgregarA').serialize();
+    $('#RegistrarP').click(function() {
+        datos = $('#FormAgregarP').serialize();
 
         $.ajax({
             type: "POST",
             data: datos,
-            url: "procesos/agregarA.php",
+            url: "procesos/agregarP.php",
             success: function(r) {
                 if (r == 1) {
-                    $('#FormAgregarA')[0].reset();
-                    $('#tablaDatatable').load('tabla.php');
+                    $('#FormAgregarP')[0].reset();
+                    $('#tablaDatatable').load('tablas/tablaP.php');
                     alertify.success("Agregado con exito");
                 } else {
                     alertify.error(r);
@@ -251,18 +251,18 @@ function agregaFrmActualizar(idjuego) {
     });
 }
 
-function eliminarDatos(idAlumno) {
-    alertify.confirm('Eliminar Alumno', '¿Seguro de eliminar este alumno?, este proceso no se puede deshacer',
+function eliminarDatos(idPadre) {
+    alertify.confirm('Eliminar Padre', '¿Seguro de eliminar este alumno?, este proceso no se puede deshacer',
         function() {
 
             $.ajax({
                 type: "POST",
-                data: "idAlumno=" + idAlumno,
-                url: "procesos/eliminarA.php",
+                data: "idPadre=" + idPadre,
+                url: "procesos/eliminarP.php",
                 success: function(r) {
                     if (r == 1) {
-                        $('#tablaDatatable').load('tablas.tablaA.php');
-                        alertify.success("Eliminado con exito !");
+                        $('#tablaDatatable').load('tablas/tablaP.php');
+                        alertify.success("Eliminado con exito!");
                     } else {
                         alertify.error("No se pudo eliminar");
                     }

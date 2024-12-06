@@ -13,7 +13,7 @@
     $conn = $obj1->conexion();
 
     $sql1 = "select id, nombre from meses";
-    $sql2 = "select id, nombre from estados";
+    $sql2 = "select inicial, nombre from estados";
 
     $meses = mysqli_query($conn, $sql1);
     $estados = mysqli_query($conn, $sql2);
@@ -126,7 +126,7 @@
                                 // Iterar los resultados y crear las opciones del select
                                 if ($meses->num_rows > 0) {
                                     while ($row = $estados->fetch_assoc()) {
-                                        echo "<option value='" . $row['iniciales'] . "'>" . $row['nombre'] . "</option>";
+                                        echo "<option value='" . $row['inicial'] . "'>" . $row['nombre'] . "</option>";
                                     }
                                 } else {
                                     echo "<option>No hay datos</option>";
@@ -205,7 +205,7 @@ $(document).ready(function() {
             success: function(r) {
                 if (r == 1) {
                     $('#FormAgregarA')[0].reset();
-                    $('#tablaDatatable').load('tabla.php');
+                    $('#tablaDatatable').load('tablas/tablaA.php');
                     alertify.success("Agregado con exito");
                 } else {
                     alertify.error(r);
@@ -223,7 +223,7 @@ $(document).ready(function() {
             url: "procesos/actualizar.php",
             success: function(r) {
                 if (r == 1) {
-                    $('#tablaDatatable').load('tabla.php');
+                    $('#tablaDatatable').load('tablas/tablaA.php');
                     alertify.success("Actualizado con exito :D");
                 } else {
                     alertify.error("Fallo al actualizar :(");
@@ -261,7 +261,7 @@ function eliminarDatos(idAlumno) {
                 url: "procesos/eliminarA.php",
                 success: function(r) {
                     if (r == 1) {
-                        $('#tablaDatatable').load('tablas.tablaA.php');
+                        $('#tablaDatatable').load('tablas/tablaA.php');
                         alertify.success("Eliminado con exito !");
                     } else {
                         alertify.error("No se pudo eliminar");

@@ -1,20 +1,12 @@
 <?php 
 	require_once "../clases/conexion.php";
-	require_once "../clases/crud.php";
+	require_once "../clases/crudP.php";
 	$obj= new crud();
 
-	// Validar los datos del formulario
-    function validarDatos($datos) {
-        foreach ($datos as $dato) {
-            if (empty($dato)) {
-                return false;
-            }
-        }
-        return true;
-    }
+
 
 	// Función para generar la CURP
-    function generarCURP($nombre, $apellidoPaterno, $apellidoMaterno, $anio, $mes, $dia, $sexo, $estado) {
+    function generarRFC($nombre, $apellidoPaterno, $apellidoMaterno, $anio, $mes, $dia) {
         $nombre = strtoupper($nombre);
         $apellidoPaterno = strtoupper($apellidoPaterno);
         $apellidoMaterno = strtoupper($apellidoMaterno);
@@ -26,15 +18,16 @@
         $curp .= substr($anio, -2); // Últimos dos dígitos del año de nacimiento
         $curp .= str_pad($mes, 2, '0', STR_PAD_LEFT); // Mes de nacimiento
         $curp .= str_pad($dia, 2, '0', STR_PAD_LEFT); // Día de nacimiento
-        $curp .= strtoupper($sexo); // Sexo (H o M)
-        $curp .= (substr($estado, 0, 2)); // Abreviatura del estado
-
         return $curp;
     }
 		
     $dia = $_POST['dia'];
     $mes = $_POST['mes'];
     $anio = $_POST['anio'];
+
+	
+
+
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -46,13 +39,15 @@
 			'nombre' => '',
 			'apellidoP' => '',
 			'apellidoM' => '',
+			'direccion' => '',
+			'cp' => '',
 			'dia' => '',
 			'mes' => 'Mes', // Valor por defecto del <select>
 			'anio' => '',
 			'sexo' => '',
-			'estado' => 'Selecciona un estado', // Valor por defecto del <select>
-			'nivel' => 'Elige alguna opcion',
-			'grado' => 'Elige alguna opcion' // Valor por defecto del <select>
+			// 'estado' => '', // Valor por defecto del <select>
+			'rfc' => '',
+			'regimen' => 'Elige alguna opcion' // Valor por defecto del <select>
 		];
 
 		// Validar cada campo
@@ -71,8 +66,8 @@
 		} 
 
 			// Validar que el año sea 2009 o posterior
-			if ($anio < 2009) {
-				echo "El año debe ser 2009 o posterior.";
+			if ($anio < 1970) {
+				echo "El año debe ser 1970 o posterior.";
 				exit;
 			}
 
@@ -82,30 +77,29 @@
 				exit;
 			}
 	}
-	
 
 	$datos = array(
 		$_POST['nombre'],
 		$_POST['apellidoP'],
 		$_POST['apellidoM'],
+		$_POST['direccion'],
+		$_POST['cp'],
 		$fechaNacimiento = sprintf(
 			'%04d-%02d-%02d', // Formato de salida
 			intval($_POST['anio']), // Año en 4 dígitos
 			intval($_POST['mes']),  // Mes en 2 dígitos
 			intval($_POST['dia'])   // Día en 2 dígitos
 		),
-		generarCURP(
+		generarRFC(
 			$_POST['nombre'],
 			$_POST['apellidoP'],
 			$_POST['apellidoM'],
 			$_POST['anio'],
 			$_POST['mes'],
 			$_POST['dia'],
-			$_POST['sexo'],
-			$_POST['estado']
 		),
-		$_POST['nivel'],
-		$_POST['grado']
+		// $_POST['rfc'],
+		$_POST['regimen']
 		
 	);
 	
