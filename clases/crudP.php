@@ -57,6 +57,15 @@
 			$sql="DELETE from padres where id='$idPadre'";
 			return mysqli_query($conexion,$sql);
 		}
+
+		public function enlazar($idA, $idP){
+			$obj= new conectar();
+			$conexion=$obj->conexion();
+
+			
+			$sql="INSERT INTO padrehijo (idPadre, idHijo) VALUES ('$idP', '$idA');";
+			return mysqli_query($conexion,$sql);
+		}
 	}
 
  ?>

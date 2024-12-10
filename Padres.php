@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Padres</title>
     <?php 
     require_once "script.php";
     require_once "clases/conexion.php";
@@ -78,7 +78,7 @@
                             <label class="form-label">Apellido materno</label>
                             <input type="text" class="form-control" name="apellidoM" placeholder="Perez" />
                         </div>
-                        
+
                         <div class="col-8">
                             <label class="form-label">Dirección</label>
                             <input type="text" class="form-control" name="direccion"
@@ -156,7 +156,7 @@
                             <label class="form-label">RFC</label>
                             <input type="text" class="form-control" name="rfc" placeholder="Ingresa tu RFC" />
                         </div>
-                        
+
                         <div class="col-md-8">
                             <label class="form-label">Regimen fiscal</label>
                             <select class="form-select" name="regimen">
@@ -168,9 +168,31 @@
                             </select>
                         </div>
 
-                        
+
 
                     </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="RegistrarP">Registrar padre</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="EnlazarAlumno" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Agrega nuevos alumnos</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="tablaDatatableE">
+
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -192,9 +214,19 @@ $(document).ready(function() {
 });
 </script>
 
+<!-- CARGAR TABLA DE ENLACE-->
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#tablaDatatableE').load('tablas/tablaE.php');
+
+});
+</script>
+
+
 <!-- BOTONES -->
 <script type="text/javascript">
 $(document).ready(function() {
+
     $('#RegistrarP').click(function() {
         datos = $('#FormAgregarP').serialize();
 
@@ -236,6 +268,12 @@ $(document).ready(function() {
 
 <!-- ACTUALIZA Y ELIMINAR -->
 <script type="text/javascript">
+var x = 0
+
+function obtenerNumero(num) {
+    x = num;
+}
+
 function agregaFrmActualizar(idjuego) {
     $.ajax({
         type: "POST",
@@ -273,6 +311,23 @@ function eliminarDatos(idPadre) {
 
         });
 }
+
+function enlazarPadres(id) {
+    $.ajax({
+        type: "POST",
+        data: "idAlumno=" + id + "&idPadre=" + x,
+        url: "procesos/enlazarAlumno.php",
+        success: function(r) {
+            if (r == 1) {
+                alertify.success("Enlazado con exito!");
+            } else {
+                alertify.error("No se pudo enlazar al padre");
+            }
+        }
+    });
+}
 </script>
+
+
 
 <?php include('clases/footer.php'); ?>

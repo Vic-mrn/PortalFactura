@@ -24,6 +24,7 @@
                 <td>Regimen fiscal</td>
                 <td>Editar</td>
                 <td>Eliminar</td>
+                <td>Enlazar alumno</td>
             </tr>
         </thead>
         <tfoot style="background-color: #ffffff; color: white; font-weight: bold;">
@@ -39,6 +40,7 @@
                 <td>Regimen fiscal</td>
                 <td>Editar</td>
                 <td>Eliminar</td>
+                <td>Enlazar alumno</td>
             </tr>
         </tfoot>
         <tbody>
@@ -58,14 +60,21 @@
                 <td>
                     <span class="btn btn-warning btn-sm" data-toggle="modal" data-target="#ModificarDatosA"
                         onclick="agregaFrmActualizar('<?php echo $mostrar[0] ?>')">
-                        <span class="fa-solid fa-user-pen"></span>
+                        <i class="fa-solid fa-user-pen"></i>
                     </span>
                 </td>
 
                 <td>
                     <span class="btn btn-danger btn-sm" onclick="eliminarDatos('<?php echo $mostrar[0] ?>')">
-                        <span class="fa-solid fa-user-minus"></span>
+                        <i class="fa-solid fa-user-minus"></i>
                     </span>
+                </td>
+
+                <td>
+                    <span class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EnlazarAlumno" onclick="obtenerNumero('<?php echo $mostrar[0] ?>')">
+                            <i class="fa-solid fa-user-plus"></i>
+                    </span>
+                   
                 </td>
             </tr>
             <?php 
@@ -77,5 +86,11 @@
 </div>
 
 <script type="text/javascript">
-new DataTable('#datatable2');
+new DataTable('#datatable2', {
+    language: {
+        url: '//cdn.datatables.net/plug-ins/2.1.8/i18n/es-ES.json',
+    },
+}
+
+);
 </script>
