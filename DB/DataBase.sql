@@ -7,7 +7,7 @@ CREATE TABLE alumnos(
   Nombre VARCHAR(255) NOT NULL,
   ApellidoP VARCHAR(255) NOT NULL,
   ApellidoM VARCHAR(255) NOT NULL,
-  FechaN int(15),
+  FechaN date,
   CURP VARCHAR(19) NOT NULL,
   NivelEducativo VARCHAR(19) NOT NULL,
   Grado VARCHAR(19) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE padres(
   ApellidoM VARCHAR(255) NOT NULL,
   Direccion VARCHAR(255) NOT NULL,
   CP int(10),
-  FechaN int(15),
+  FechaN DATE,
   RFC VARCHAR(19) NOT NULL,
   RegimenFiscal VARCHAR(200) NOT NULL,
   FechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -102,3 +102,11 @@ INSERT INTO estados (nombre, inicial) VALUES
 ('Yucatán', 'YN'),
 ('Zacatecas', 'ZS'),
 ('Nacido en el extrangero', 'NE');
+
+CREATE TABLE PadreHijo (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    idPadre INT(11) NOT NULL,
+    idHijo INT(11) NOT NULL,
+    FOREIGN KEY (idPadre) REFERENCES Padres(id),
+    FOREIGN KEY (idHijo) REFERENCES Alumnos(id)
+);

@@ -2,7 +2,7 @@
 
     class conectar{
         public function conexion(){
-            $conexion=mysqli_connect('localhost','root','con.1234','facturas');
+            $conexion=mysqli_connect('localhost','root','','facturas');
             return $conexion;
         }
     }
