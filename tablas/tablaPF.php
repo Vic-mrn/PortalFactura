@@ -5,7 +5,6 @@
     
     // SELECT Padres.id, Padres.Nombre, Padres.RFC, Alumnos.id, Alumnos.Nombre, Padres.CURP FROM PadreHijo JOIN Padres ON PadreHijo.idPadre = Padres.id JOIN Alumnos ON PadreHijo.idHijo = Alumnos.id;
     $sql = "select Padres.id, Padres.Nombre, Padres.RFC, Alumnos.id, Alumnos.Nombre, Alumnos.CURP FROM PadreHijo JOIN Padres ON PadreHijo.idPadre = Padres.id JOIN Alumnos ON PadreHijo.idHijo = Alumnos.id";
-
     $result = mysqli_query($conexion, $sql);
 ?>
 
@@ -35,11 +34,11 @@
                 <td><?php echo $mostrar[4] ?></td>
                 <td><?php echo $mostrar[5] ?></td>
                 <td>
-                    <a href="">
-                        <span class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#GenerarFactura">
-                            <i class="bi bi-file-earmark-diff-fill"></i>
-                        </span>
-                    </a>
+                    <form method="GET" action="GFactura.php">
+                        <input type="hidden" name="idP" value="<?php echo $mostrar[0]; ?>" />
+                        <input type="hidden" name="idA" value="<?php echo $mostrar[3]; ?>" />
+                        <input type="submit" value="+" class="btn btn-primary">
+                    </form>
                 </td>
             </tr>
             <?php 

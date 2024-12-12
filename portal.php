@@ -27,7 +27,7 @@
                 <img src="img/factura.png" height="150 px" width="150 px" alt="">
                 <h2>Facturas</h2>
                 <p>Genera facturas a partir de los padres y alumnos registrados</p>
-                <a href="">
+                <a href="factura.php">
                     <input type="submit" class="btn btn-primary" value="Ir a facturas" />
                 </a>
             </div>

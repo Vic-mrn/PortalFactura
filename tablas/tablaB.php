@@ -4,7 +4,7 @@
     $obj = new conectar();
     $conexion = $obj->conexion();
     
-    $sql = "select Alumnos.id, Alumnos.Nombre, Alumnos.ApellidoP, Alumnos.ApellidoM, Alumnos.CURP from padrehijo JOIN Alumnos ON padrehijo.idHijo = Alumnos.id where padrehijo.idPadre = 1";
+    $sql = "SELECT * FROM bitacora";
 // '{$id}'
     $result = mysqli_query($conexion, $sql);
     
@@ -16,11 +16,10 @@
         <thead style="background-color: rgb(37, 110, 170); color: white; font-weight: bold;">
             <tr>
                 <td>ID</td>
-                <td>Nombre</td>
-                <td>Apellido Paterno</td>
-                <td>Apellido Materno</td>
-                <td>CURP</td>
-                <td>Generar factura</td>
+                <td>Usuario</td>
+                <td>Acción</td>
+                <td>Fecha</td>
+                <td>Hora</td>
             </tr>
         </thead>
         <tbody>
@@ -33,11 +32,6 @@
                 <td><?php echo $mostrar[2] ?></td>
                 <td><?php echo $mostrar[3] ?></td>
                 <td><?php echo $mostrar[4] ?></td>
-                <td>
-                    <span class="btn btn-primary" onclick="enlazarPadres('<?php echo $mostrar[0] ?>')">
-                        <i class="fa-solid fa-user-plus"></i>
-                    </span>
-                </td>
             </tr>
             <?php 
                 }
@@ -50,6 +44,6 @@
 
 
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 new DataTable('#datatableA');
-</script> -->
+</script>

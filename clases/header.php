@@ -174,12 +174,23 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link collapsed">
+                        <a href="Bitacora.php" class="sidebar-link collapsed">
                             <i class="bi bi-building"></i>
                             Administración
                         </a>
                     </li>
+                    <li class="sidebar-header">
+                        Facturación
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="factura.php" class="sidebar-link collapsed">
+                            <i class="bi bi-file-earmark-diff"></i>
+                            Crear factura
+                        </a>
+                    </li>
                 </ul>
+
+
             </div>
         </aside>
         <!-- Main Component -->

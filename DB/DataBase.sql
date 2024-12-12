@@ -110,3 +110,12 @@ CREATE TABLE PadreHijo (
     FOREIGN KEY (idPadre) REFERENCES Padres(id),
     FOREIGN KEY (idHijo) REFERENCES Alumnos(id)
 );
+
+CREATE TABLE factura (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    idPadre INT(11) NOT NULL,
+    idHijo INT(11) NOT NULL,
+    FechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (idPadre) REFERENCES Padres(id),
+    FOREIGN KEY (idHijo) REFERENCES Alumnos(id)
+);
