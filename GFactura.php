@@ -66,142 +66,142 @@
 
 
     <style>
-    body {
-        margin: 1px;
-        /* Ajusta el margen a tu preferencia */
-        padding: 0;
-        font-size: 12px;
-    }
+        body {
+            margin: 1px;
+            /* Ajusta el margen a tu preferencia */
+            padding: 0;
+            font-size: 12px;
+        }
 
-    .factura {
-        padding: 1px;
-        /* Espaciado interno */
-    }
+        .factura {
+            padding: 1px;
+            /* Espaciado interno */
+        }
 
-    @page {
-        margin: 0px 0px;
-    }
+        @page {
+            margin: 0px 0px;
+        }
 
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 20px;
-        background-color: #f9f9f9;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
 
-    .factura {
-        max-width: 800px;
-        margin: auto;
-        background: #fff;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+        .factura {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    .encabezado {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-    }
+        .encabezado {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-    .logo {
-        flex: 0 0 120px;
-        /* Espacio fijo para el logo */
-        text-align: center;
-    }
+        .logo {
+            flex: 0 0 120px;
+            /* Espacio fijo para el logo */
+            text-align: center;
+        }
 
-    .logo img {
-        width: 100px;
-        height: auto;
-    }
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
 
-    .datos-emisor {
-        flex: 1;
-        /* Ocupa el resto del espacio */
-        margin-left: 20px;
-    }
+        .datos-emisor {
+            flex: 1;
+            /* Ocupa el resto del espacio */
+            margin-left: 20px;
+        }
 
-    .datos-emisor p {
-        margin: 2px 0;
-    }
+        .datos-emisor p {
+            margin: 2px 0;
+        }
 
-    .receptor {
-        margin-bottom: 20px;
-        padding: 10px;
-        background: #f1f1f1;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-    }
+        .receptor {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
 
-    .conceptos table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-    }
+        .conceptos table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
 
-    .conceptos th,
-    .conceptos td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-    }
+        .conceptos th,
+        .conceptos td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
 
-    .conceptos th {
-        background-color: #003366;
-        color: #fff;
-    }
+        .conceptos th {
+            background-color: #003366;
+            color: #fff;
+        }
 
-    .totales {
-        text-align: right;
-    }
+        .totales {
+            text-align: right;
+        }
 
-    .totales h2 {
-        margin: 0 0 10px;
-    }
+        .totales h2 {
+            margin: 0 0 10px;
+        }
 
-    .totales p {
-        margin: 2px 0;
-    }
+        .totales p {
+            margin: 2px 0;
+        }
 
-    .row {
-        display: flex;
-        align-items: center;
-        /* Alinea el contenido verticalmente */
-        justify-content: space-between;
-        /* Asegura espacio entre el texto y el logo */
-    }
+        .row {
+            display: flex;
+            align-items: center;
+            /* Alinea el contenido verticalmente */
+            justify-content: space-between;
+            /* Asegura espacio entre el texto y el logo */
+        }
 
-    .col-6 {}
+        .col-6 {}
 
-    .col-6 img {
-        display: block;
-        /* Asegura que no tenga márgenes externos */
-        margin-left: auto;
-        /* Empuja el logo hacia la derecha */
-    }
+        .col-6 img {
+            display: block;
+            /* Asegura que no tenga márgenes externos */
+            margin-left: auto;
+            /* Empuja el logo hacia la derecha */
+        }
 
-    .border {
-        border: 1px solid #ddd;
-        border-radius: 25px;
-        margin: 15px;
-    }
+        .border {
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            margin: 15px;
+        }
 
-    .contenedor1 {
-        display: flex;
-        padding: 30px;
-    }
+        .contenedor1 {
+            display: flex;
+            padding: 30px;
+        }
 
-    .div1 {
-        width: 100px;
-        height: 100px;
-        float: left;
-    }
+        .div1 {
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
 
-    .div2 {
-        margin-top: 20px;
-        height: 100px;
-    }
+        .div2 {
+            margin-top: 20px;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -209,9 +209,12 @@
     <div class="container mt-5">
         <div class="factura border p-4 rounded">
             <!-- Encabezado -->
-            <label class="form-label"><strong>Factura FAC<?php echo $row3['id']; ?></strong></label>
+            <label class="form-label"><strong>Factura FAC
+                    <?php echo $row3['id']; ?>
+                </strong></label>
             <label class="form-label">
-                <strong> Fecha y hora de emision:</strong> <?php echo $row3['FechaRegistro']; ?>
+                <strong> Fecha y hora de emision:</strong>
+                <?php echo $row3['FechaRegistro']; ?>
             </label>
 
             <div class="contenedor1 border">
@@ -232,7 +235,8 @@
                         <?php echo $row['Nombre'] . ' ' . $row['ApellidoP'] . ' ' . $row['ApellidoM']; ?>
                     </label><br>
                     <label class="form-label">
-                        <strong>RFC Emisor:</strong> <?php echo $row['RFC']; ?>
+                        <strong>RFC Emisor:</strong>
+                        <?php echo $row['RFC']; ?>
                     </label><br>
                     <label class="form-label"><strong>Régimen fiscal:</strong>
                         <?php 
@@ -279,9 +283,13 @@
                             <td>12345</td>
                             <td style="font-size: 12px;">Pago por concepto de colegiatura, del alumno:
                                 <?php echo $row2['Nombre'] . ' ' . $row2['ApellidoP'] . ' ' . $row2['ApellidoM']; ?>,
-                                que cursa el <?php echo $row2['Grado']; ?> grado
-                                de <?php echo $row2['NivelEducativo']; ?>. con
-                                CURP: <?php echo $row2['CURP']; ?>.</td>
+                                que cursa el
+                                <?php echo $row2['Grado']; ?> grado
+                                de
+                                <?php echo $row2['NivelEducativo']; ?>. con
+                                CURP:
+                                <?php echo $row2['CURP']; ?>.
+                            </td>
                             <td>
                                 <?php 
                                     if ($row2['NivelEducativo'] == 'Preescolar') {
@@ -313,18 +321,48 @@
                 </label>
 
                 <label class="form-label">
-                    <strong> CURP:</strong> <?php echo $row2['CURP']; ?>
+                    <strong> CURP:</strong>
+                    <?php echo $row2['CURP']; ?>
                 </label>
 
                 <label class="form-label">
-                    <strong> Nivel educativo:</strong> <?php echo $row2['NivelEducativo']; ?>
+                    <strong> Nivel educativo:</strong>
+                    <?php echo $row2['NivelEducativo']; ?>
                 </label><br>
             </div>
 
             <!-- Totales -->
+            <div class="totales text-end">
+                <h5>Totales</h5>
+                <p><strong>Subtotal:</strong>
+                    <?php 
+                        if ($row2['NivelEducativo'] == 'Preescolar') {
+                            echo '(DOS MIL MXN 00/100) $2,000.00';
+                        } elseif ($row2['NivelEducativo'] == 'Primaria') {
+                            echo '(DOS MIL QUINIENTOS MXN 00/100) $2,500.00';
+                        } elseif ($row2['NivelEducativo'] == 'Secundaria') {
+                            echo '(TRES MIL QUINIENTOS MXN 00/100) $3,500.00';
+                        }
+                    ?>
+                </p>
+                <p><strong>Descuentos:</strong> $0.00</p>
+                <p><strong>Total:</strong>
+                    <?php 
+                        if ($row2['NivelEducativo'] == 'Preescolar') {
+                            echo '(DOS MIL MXN 00/100) $2,000.00';
+                        } elseif ($row2['NivelEducativo'] == 'Primaria') {
+                            echo '(DOS MIL QUINIENTOS MXN 00/100) $2,500.00';
+                        } elseif ($row2['NivelEducativo'] == 'Secundaria') {
+                            echo '(TRES MIL QUINIENTOS MXN 00/100) $3,500.00';
+                        }
+                    ?>
+                </p>
+            </div>
 
-            <div class="contenedor1 border">
-                <?php
+          
+                
+                <div class="contenedor1 border" style="" >
+                    <?php
                     $path = 'img/qr.svg';
                     $type = pathinfo($path, PATHINFO_EXTENSION);
                     $data = file_get_contents($path);
@@ -335,47 +373,15 @@
                     <br>
                     <img src="<?php echo $base64 ?>" alt="Logo" class="media-object" style="max-width: 100px;">
                 </div>
-                <!-- Datos del emisor -->
-                <div class="totales text-end">
-                    <h5>Totales</h5>
-                    <p><strong>Subtotal:</strong>
-                        <?php 
-                        if ($row2['NivelEducativo'] == 'Preescolar') {
-                            echo '(DOS MIL MXN 00/100) $2,000.00';
-                        } elseif ($row2['NivelEducativo'] == 'Primaria') {
-                            echo '(DOS MIL QUINIENTOS MXN 00/100) $2,500.00';
-                        } elseif ($row2['NivelEducativo'] == 'Secundaria') {
-                            echo '(TRES MIL QUINIENTOS MXN 00/100) $3,500.00';
-                        }
-                    ?>
-                    </p>
-                    <p><strong>Descuentos:</strong> $0.00</p>
-                    <p><strong>Total:</strong>
-                        <?php 
-                        if ($row2['NivelEducativo'] == 'Preescolar') {
-                            echo '(DOS MIL MXN 00/100) $2,000.00';
-                        } elseif ($row2['NivelEducativo'] == 'Primaria') {
-                            echo '(DOS MIL QUINIENTOS MXN 00/100) $2,500.00';
-                        } elseif ($row2['NivelEducativo'] == 'Secundaria') {
-                            echo '(TRES MIL QUINIENTOS MXN 00/100) $3,500.00';
-                        }
-                    ?>
-                    </p>
-                </div>
-            </div>
-            <div class="contenedor1 border">
-                <h3><strong>Sello digital del CFDI:</strong></h3>
-                <div style="word-wrap: break-word;   max-width: 500px;">
+                    <h3><strong>Sello digital del CFDI:</strong> </h3>
+                   <div style="word-wrap: break-word; overflow-wrap: break-word;  font-size: 8px;">
                     dglic9wNF/56oKI9zW1dVGLIUHfvCX7TI1+N0R02pLEtamzPj8OaeAd7mxARWmVZX82jIhsJIX54eRqcFH/sG9U3ZWucfwB45A+bX/PT121
                     OCkVg9V8kzulapH3X8rXknZuooGDhz8w3oAX11dw137Y/RS/j7fFT8E/sR/71xt43eVIfxJPdMBtQXhNZYzszaelBgokFyvV4fUVXIKajCauw3
                     LlEj8FOrHXwwsTNk0IFSNmZrH6KuLe+zHorQagJMLsYaLbcQUVzu5zDeLNEZN4/U8sdqmXmVyVeBuUlcpbeaHZ/NE4rpV47fz+4kg5ESp
                     nyUjFmkMDk8t00l5DQ5A==
+                   </div>
                 </div>
             </div>
-
-
-
-        </div>
     </div>
 
     <!-- Bootstrap JS Bundle -->
