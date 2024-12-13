@@ -255,8 +255,8 @@
             <!-- Receptor -->
             <div class="contenedor1 border">
                 <label class="form-label"><strong>Receptor</strong></label><br>
-                <label class="form-label"><strong>RFC: </strong>MOAV021002Q99</label><br>
-                <label class="form-label"><strong>Nombre: </strong>Moreno Arellano Victor Manuel</label><br>
+                <label class="form-label"><strong>RFC: </strong>AUHC670504QA1</label><br>
+                <label class="form-label"><strong>Nombre: </strong>Astudillo Hernández Carolina</label><br>
                 <label class="form-label"><strong>Domicilio Fiscal: </strong>Av. Lopez Mateos No. 3 Col. Universidad CP:
                     39992</label>
             </div>
