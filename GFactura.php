@@ -322,10 +322,24 @@
             </div>
 
             <!-- Totales -->
-            <div class="totales text-end">
-                <h5>Totales</h5>
-                <p><strong>Subtotal:</strong>
-                    <?php 
+
+            <div class="contenedor1 border">
+                <?php
+                    $path = 'img/qr.svg';
+                    $type = pathinfo($path, PATHINFO_EXTENSION);
+                    $data = file_get_contents($path);
+                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+                ?>
+                <!-- Logo -->
+                <div class="div1">
+                    <br>
+                    <img src="<?php echo $base64 ?>" alt="Logo" class="media-object" style="max-width: 100px;">
+                </div>
+                <!-- Datos del emisor -->
+                <div class="totales text-end">
+                    <h5>Totales</h5>
+                    <p><strong>Subtotal:</strong>
+                        <?php 
                         if ($row2['NivelEducativo'] == 'Preescolar') {
                             echo '(DOS MIL MXN 00/100) $2,000.00';
                         } elseif ($row2['NivelEducativo'] == 'Primaria') {
@@ -334,10 +348,10 @@
                             echo '(TRES MIL QUINIENTOS MXN 00/100) $3,500.00';
                         }
                     ?>
-                </p>
-                <p><strong>Descuentos:</strong> $0.00</p>
-                <p><strong>Total:</strong>
-                    <?php 
+                    </p>
+                    <p><strong>Descuentos:</strong> $0.00</p>
+                    <p><strong>Total:</strong>
+                        <?php 
                         if ($row2['NivelEducativo'] == 'Preescolar') {
                             echo '(DOS MIL MXN 00/100) $2,000.00';
                         } elseif ($row2['NivelEducativo'] == 'Primaria') {
@@ -346,8 +360,21 @@
                             echo '(TRES MIL QUINIENTOS MXN 00/100) $3,500.00';
                         }
                     ?>
-                </p>
+                    </p>
+                </div>
             </div>
+            <div class="contenedor1 border">
+                <h3><strong>Sello digital del CFDI:</strong></h3>
+                <div style="word-wrap: break-word;   max-width: 500px;">
+                    dglic9wNF/56oKI9zW1dVGLIUHfvCX7TI1+N0R02pLEtamzPj8OaeAd7mxARWmVZX82jIhsJIX54eRqcFH/sG9U3ZWucfwB45A+bX/PT121
+                    OCkVg9V8kzulapH3X8rXknZuooGDhz8w3oAX11dw137Y/RS/j7fFT8E/sR/71xt43eVIfxJPdMBtQXhNZYzszaelBgokFyvV4fUVXIKajCauw3
+                    LlEj8FOrHXwwsTNk0IFSNmZrH6KuLe+zHorQagJMLsYaLbcQUVzu5zDeLNEZN4/U8sdqmXmVyVeBuUlcpbeaHZ/NE4rpV47fz+4kg5ESp
+                    nyUjFmkMDk8t00l5DQ5A==
+                </div>
+            </div>
+
+
+
         </div>
     </div>
 
